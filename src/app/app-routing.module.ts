@@ -4,22 +4,12 @@ import { authGuard } from './auth/auth.guard';
  
  
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   pathMatch: 'full',
-  //   redirectTo: 'recipes'
-  // },
   {
-    path: 'recipes',
+    path: 'home',
     children: [
       {
         path: '',
-        loadChildren: () => import('./recipes/recipes.module').then( m => m.RecipesPageModule),
-        canMatch: [authGuard]
-      },
-      {
-        path: ':recipeId',
-        loadChildren: () => import('./recipes/recipe-detail/recipe-detail.module').then( m => m.RecipeDetailPageModule),
+        loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
         canMatch: [authGuard]
       }
     ]

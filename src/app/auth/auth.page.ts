@@ -47,7 +47,7 @@ export class AuthPage implements OnInit {
             loadingEl.dismiss();
             authform.controls['email'].setValue('');
             authform.controls['password'].setValue('');
-            this.router.navigateByUrl('/recipes');
+            this.router.navigateByUrl('/home');
           }, errorRes => {
             loadingEl.dismiss();
             const code = errorRes.error.error.message;

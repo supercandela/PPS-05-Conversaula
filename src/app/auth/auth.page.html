@@ -1,11 +1,11 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="danger">
+  <ion-toolbar>
     <ion-title>{{ isLogin ? 'Ingreso de usuario registrados' : 'Registro de nuevos usuarios' }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <form #authform="ngForm" (ngSubmit)="onSubmit(authform)">
+<ion-content [fullscreen]="true">
+  <form #authform="ngForm" (ngSubmit)="onSubmit(authform)" class="ion-padding">
     <ion-grid>
       <ion-row style="margin-bottom: 6vh;">
         <ion-col size-sm="6" offset-sm="3">
@@ -55,17 +55,17 @@
         <ion-col size-sm="6" offset-sm="3">
           <ion-button
             type="button"
-            color="danger"
             fill="clear"
             expand="block"
+            class="cambiarA"
             (click)="onSwitchAuthMode()"
           >
             Cambiar a {{ isLogin ? 'Registro' : 'Ingreso'}}
           </ion-button>
           <ion-button
             type="submit"
-            color="danger"
             expand="block"
+            class="submitir"
             [disabled]="!authform.valid"
           >
             {{ isLogin ? 'Ingresar' : 'Registrarse'}}
@@ -91,14 +91,14 @@
             type="button"
             fill="clear"
             expand="full"
-            (click)="onFastLogin(authform, 'lion-o@mail.com', 'lion-o1234')"
+            (click)="onFastLogin(authform, 'invitado@invitado.com', '222222')"
           >
             <ion-grid class="grid-avatars">
               <ion-row>
                 <ion-col class="no-lateral-margin-or-padding">
                   <ion-avatar>
                     <ion-img
-                      [src]="'../../assets/images/lion_o-avatar.jpg'"
+                      [src]="'../../assets/images/App01-User1.png'"
                     ></ion-img>
                   </ion-avatar>
                 </ion-col>
@@ -106,7 +106,7 @@
               <ion-row>
                 <ion-col class="no-lateral-margin-or-padding">
                   <ion-label>
-                    <ion-text>Lion-O</ion-text>
+                    <ion-text>Invitado</ion-text>
                   </ion-label>
                 </ion-col>
               </ion-row>
@@ -118,14 +118,14 @@
           type="button"
           fill="clear"
           expand="full"
-          (click)="onFastLogin(authform, 'cheetara@mail.com', 'cheetara1234')"
+          (click)="onFastLogin(authform, 'usuario@usuario.com', '333333')"
         >
           <ion-grid class="grid-avatars">
             <ion-row>
               <ion-col class="no-lateral-margin-or-padding">
                 <ion-avatar>
                   <ion-img
-                    [src]="'../../assets/images/cheetara-avatar-2.jpg'"
+                    [src]="'../../assets/images/App01-User2.png'"
                   ></ion-img>
                 </ion-avatar>
               </ion-col>
@@ -133,7 +133,7 @@
             <ion-row>
               <ion-col class="no-lateral-margin-or-padding">
                 <ion-label>
-                  <ion-text>Cheetara</ion-text>
+                  <ion-text>Usuario</ion-text>
                 </ion-label>
               </ion-col>
             </ion-row>
@@ -145,14 +145,14 @@
           type="button"
           fill="clear"
           expand="full"
-          (click)="onFastLogin(authform, 'panthro@mail.com', 'panthro1234')"
+          (click)="onFastLogin(authform, 'anonimo@anonimo.com', '444444')"
         >
           <ion-grid class="grid-avatars">
             <ion-row>
               <ion-col class="no-lateral-margin-or-padding">
                 <ion-avatar>
                   <ion-img
-                    [src]="'../../assets/images/pantro-avatar.jpg'"
+                    [src]="'../../assets/images/App01-User3.png'"
                   ></ion-img>
                 </ion-avatar>
               </ion-col>
@@ -160,7 +160,7 @@
             <ion-row>
               <ion-col class="no-lateral-margin-or-padding">
                 <ion-label>
-                  <ion-text>Panthro</ion-text>
+                  <ion-text>Anónimo</ion-text>
                 </ion-label>
               </ion-col>
             </ion-row>

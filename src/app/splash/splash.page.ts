@@ -12,7 +12,7 @@ export class SplashPage implements OnInit {
     private router: Router
   ) {
     setTimeout(() => {
-      this.router.navigateByUrl('/recipes');
+      this.router.navigateByUrl('/home');
     }, 3000);
   }
 

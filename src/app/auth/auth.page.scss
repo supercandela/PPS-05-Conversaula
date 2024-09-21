@@ -1,5 +1,25 @@
+ion-content {
+    --background: rgb(73, 143, 102);
+}
+
 form {
+    // background-color: rgb(73, 143, 102);
+    height: 100%;
     padding-top: 20vh;
+
+    ion-item {
+        --background: rgb(54, 54, 54);
+        --color: rgb(73, 143, 102);
+    }
+
+    .cambiarA {
+        color: rgb(54, 54, 54);
+    }
+
+    .submitir {
+        --background: rgb(54, 54, 54);
+        --color: rgb(73, 143, 102);
+    }
 }
 
 .errors-on-the-forms {
@@ -15,7 +35,7 @@ form {
     h3 {
         font-size: large;
         font-weight: 600;
-        color: red;
+        color: rgb(54, 54, 54);
     }
 
     ion-button {
@@ -31,7 +51,7 @@ form {
                 justify-content: center;
                 
                 ion-text {
-                    color: var(--ion-color-danger);
+                    color: rgb(54, 54, 54);
                 }
             }
         }

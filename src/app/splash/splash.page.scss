@@ -32,25 +32,25 @@
 }
 
 ion-content {
-    --background: black;
+    --background: rgb(73, 143, 102);
 
     .nombre {
         margin-top: 15vh;
 
         ion-label {
-            color: var(--ion-color-danger);
+            color: white;
             font-size: medium;
-            font-weight: 600;
+            font-weight: 800;
         }
     }
 
     .division {
-        margin-top: 15vh;
+        margin-top: 8vh;
 
         ion-label {
-            color: var(--ion-color-danger);
+            color: white;
             font-size: medium;
-            font-weight: 400;
+            font-weight: 600;
         }
     }
 
