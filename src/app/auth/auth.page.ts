@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
@@ -13,7 +13,7 @@ import { AuthResponseData, AuthService } from './auth.service';
   templateUrl: './auth.page.html',
   styleUrls: ['./auth.page.scss'],
 })
-export class AuthPage implements OnInit {
+export class AuthPage {
   isLoading = false;
   isLogin = false;
 
@@ -24,7 +24,6 @@ export class AuthPage implements OnInit {
     private alertCtrl: AlertController
   ) {}
 
-  ngOnInit() {}
 
   authenticate (authform: NgForm) {
     this.isLoading = true;

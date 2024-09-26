@@ -32,15 +32,18 @@
 }
 
 ion-content {
-    --background: rgb(73, 143, 102);
+    --background: rgb(152, 251, 152);
 
     .nombre {
         margin-top: 15vh;
 
         ion-label {
+            background-color:  rgb(255, 188, 88);
             color: white;
+            padding: 10px;
             font-size: medium;
             font-weight: 800;
+            border-radius: 10px;
         }
     }
 
@@ -48,9 +51,12 @@ ion-content {
         margin-top: 8vh;
 
         ion-label {
+            background-color:  rgb(255, 188, 88);
             color: white;
+            padding: 10px;
             font-size: medium;
             font-weight: 600;
+            border-radius: 10px;
         }
     }
 

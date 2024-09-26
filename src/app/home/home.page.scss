@@ -1,48 +1,36 @@
-@-webkit-keyframes slide-in-elliptic-bottom-fwd {
-    0% {
-        -webkit-transform: translateY(600px) rotateX(30deg) scale(0);
-                transform: translateY(600px) rotateX(30deg) scale(0);
-        -webkit-transform-origin: 50% 100%;
-                transform-origin: 50% 100%;
-        opacity: 0;
-    }
-    100% {
-        -webkit-transform: translateY(0) rotateX(0) scale(1);
-                transform: translateY(0) rotateX(0) scale(1);
-        -webkit-transform-origin: 50% -1400px;
-                transform-origin: 50% -1400px;
-        opacity: 1;
-    }
-}
-@keyframes slide-in-elliptic-bottom-fwd {
-    0% {
-        -webkit-transform: translateY(600px) rotateX(30deg) scale(0);
-                transform: translateY(600px) rotateX(30deg) scale(0);
-        -webkit-transform-origin: 50% 100%;
-                transform-origin: 50% 100%;
-        opacity: 0;
-    }
-    100% {
-        -webkit-transform: translateY(0) rotateX(0) scale(1);
-                transform: translateY(0) rotateX(0) scale(1);
-        -webkit-transform-origin: 50% -1400px;
-                transform-origin: 50% -1400px;
-        opacity: 1;
-    }
-}
-
 ion-content {
-    --background: black;
+    --padding-top: 0;
+    --padding-bottom: 0;
+}
 
-    .container {
+.buttons-container {
+    display: flex;
+    height: 100vh;
+    /* Hace que el contenedor ocupe toda la altura de la pantalla */
+}
 
-        // SLIDE
-        -webkit-animation: slide-in-elliptic-bottom-fwd 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        animation: slide-in-elliptic-bottom-fwd 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+.full-height-button {
+    flex: 1;
+    /* Los botones ocupan el mismo ancho */
+    margin-top: 7vh;
+    height: 93vh;
+    /* Cada botón ocupa toda la altura */
+    border: none;
+    padding: 0;
+    background-size: contain;
+    /* Asegura que la imagen cubra todo el botón */
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-        img {
-            width: 80vw;
-            margin-top: 15vh;
-        }
-    }
+.button-left {
+    background-color: rgb(152, 251, 152);
+    background-image: url('../../assets/images/BotonSi.png');
+    /* Ruta de la imagen de fondo del botón izquierdo */
+}
+
+.button-right {
+    background-color: rgb(255, 188, 88);
+    background-image: url('../../assets/images/BotonNo.png');
+    /* Ruta de la imagen de fondo del botón derecho */
 }
