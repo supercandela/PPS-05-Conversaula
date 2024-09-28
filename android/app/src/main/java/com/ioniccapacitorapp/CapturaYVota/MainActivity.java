@@ -1,4 +1,4 @@
-package com.ioniccapacitorapp.proyectoUTNPPS;
+package com.ioniccapacitorapp.CapturaYVota;
 
 import com.getcapacitor.BridgeActivity;
 
