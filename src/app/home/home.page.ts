@@ -19,8 +19,8 @@ export class HomePage implements OnInit {
     
   }
 
-  ionViewWillEnter () {
-
+  irASala (sala: number) {
+    console.log(sala);
   }
 
   onLogout () {

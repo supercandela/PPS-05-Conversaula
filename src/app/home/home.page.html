@@ -1,19 +1,13 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button (click)="onLogout()">
-        Cerrar sesión
-      </ion-button>
-    </ion-buttons>
-    <ion-title>Bienvenido</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-
-  <div class="buttons-container">
-    <button ion-button class="full-height-button button-left"></button>
-    <button ion-button class="full-height-button button-right"></button>
+<ion-content>
+  <!-- Contenedor para los botones principales -->
+  <div class="button-column">
+    <!-- Botones cuadrados -->
+    <button ion-button class="square-button sala-1" (click)="irASala(1)" style="background-image: url('assets/img/button1.jpg');">PPS-4A</button>
+    <button ion-button class="square-button sala-2" (click)="irASala(2)" style="background-image: url('assets/img/button2.jpg');">PPS-4B</button>
   </div>
 
+  <!-- Footer con botón de cierre de sesión -->
+  <div class="footer">
+    <button ion-button class="logout-button" (click)="onLogout()" style="background-image: url('assets/img/logout.jpg');">Cerrar sesión</button>
+  </div>
 </ion-content>

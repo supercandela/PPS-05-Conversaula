@@ -1,36 +1,62 @@
 ion-content {
     --padding-top: 0;
     --padding-bottom: 0;
-}
-
-.buttons-container {
     display: flex;
-    height: 100vh;
-    /* Hace que el contenedor ocupe toda la altura de la pantalla */
-}
-
-.full-height-button {
-    flex: 1;
-    /* Los botones ocupan el mismo ancho */
-    margin-top: 7vh;
-    height: 93vh;
-    /* Cada botón ocupa toda la altura */
-    border: none;
-    padding: 0;
-    background-size: contain;
-    /* Asegura que la imagen cubra todo el botón */
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    /* Imagen de fondo y degradado */
+    --background: linear-gradient(180deg, rgba(11,71,3,0.3) 25%, rgba(3,5,122,0.3) 63%), 
+                url('../../assets/images/fondo-chat-blanco.png') no-repeat center center / cover;
+  }
+  
+  .button-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 80px); /* Resta espacio para el footer */
+    padding: 20px;
+  }
+  
+  .square-button {
+    width: 80%;
+    aspect-ratio: 1/1; /* Asegura que los botones sean cuadrados */
+    background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-}
+    border: none;
+    margin-bottom: 20px; /* Espacio entre botones */
+    color: white;
+    font-family: 'arcade', 'arial', sans-serif;
+    font-size: 2em;
+    border: 7px solid white;
+    border-radius: 20px;
+  }
 
-.button-left {
-    background-color: rgb(152, 251, 152);
-    background-image: url('../../assets/images/BotonSi.png');
-    /* Ruta de la imagen de fondo del botón izquierdo */
-}
+  .sala-1 {
+    background-color: rgb(3, 5, 122);;
+  }
 
-.button-right {
-    background-color: rgb(255, 188, 88);
-    background-image: url('../../assets/images/BotonNo.png');
-    /* Ruta de la imagen de fondo del botón derecho */
-}
+  .sala-2 {
+    background-color: rgb(11, 71, 3);
+  }
+  
+  .footer {
+    height: 80px; /* Tamaño del footer */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .logout-button {
+    width: 100%; /* El botón ocupa todo el ancho */
+    height: 100%; /* El botón ocupa todo el alto del footer */
+    background-size: cover;
+    background-position: center;
+    border: none;
+    font-family: 'typewdemi', 'Times New Roman', Times, serif;
+    color: white;
+    background-color: rgb(3, 5, 122);
+    font-size: 1.2em;
+  }
+  
