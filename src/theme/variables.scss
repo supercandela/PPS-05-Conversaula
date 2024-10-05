@@ -1,6 +1,12 @@
-// For information on how to create your own theme, please see:
-// http://ionicframework.com/docs/theming/
+@font-face {
+    font-family: 'arcade';
+    src: url('../assets/fonts/karmaticArcade.ttf') format("truetype");
+}
 
+@font-face {
+    font-family: 'typewdemi';
+    src: url('../assets/fonts/typewcond_demi.otf') format("opentype");
+}
 
 .md.toolbar-title-default {
     /** toolbar **/

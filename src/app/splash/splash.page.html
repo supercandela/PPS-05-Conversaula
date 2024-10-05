@@ -1,13 +1,15 @@
 <ion-content [fullscreen]="true">
-  <div class="titulo ion-text-center">
-    <h1>Captura y vota</h1>
-  </div>
-  <div class="container ion-text-center">
-    <img src="../../assets/icon/Logo-Splash.png" />
-  </div>
   <div class="nombre ion-text-center">
     <ion-label> BOGADO, Candela Belén </ion-label>
   </div>
+
+  <div *ngIf="isVisible" class="splash ion-text-center">
+    <img src="../../assets/icon/Logo-Splash.png" />
+  </div>
+  <div *ngIf="!isVisible" class="logo ion-text-center">
+    <img src="../../assets/icon/logo.png" />
+  </div>
+
   <div class="division ion-text-center">
     <ion-label> División: A341 </ion-label>
   </div>
