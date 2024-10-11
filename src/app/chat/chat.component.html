@@ -5,7 +5,7 @@
       <div class="col-12 chat-messages" *ngFor="let mensaje of mensajes; let last = last">
         <div class="message" [ngClass]="mensaje.usuario === usuario ? 'my-message' : 'other-message'">
           <div class="message-content">
-            <p *ngIf="mensaje.usuario !== usuario" class="nombre-usuario"><strong>{{ mensaje.usuario }}</strong></p>
+            <p *ngIf="mensaje.usuario !== usuario" class="nombre-usuario">{{ mensaje.usuario }}</p>
             <p class="fecha">{{ (mensaje.fecha.seconds * 1000) | date:'dd-MM-yy HH:mm' }}</p>
             <p class="mensaje">{{ mensaje.mensaje }}</p>
           </div>

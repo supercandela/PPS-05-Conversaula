@@ -58,12 +58,17 @@ ion-content {
     color: gainsboro;
     font-family: 'typewdemi', 'Times New Roman', Times, serif;
 }
+.message-content p {
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}
 
 .nombre-usuario {
     display: inline-block;
     font-weight: bold;
-    margin-bottom: 0.2rem;
+    font-size: 1.2em;
     margin-right: 0.2rem;
+    font-family: 'typewdemiBold', 'Times New Roman', Times, serif;
 }
 
 .fecha {
