@@ -1,90 +1,78 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  AfterViewChecked,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+import { ChatService } from './chat.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss'],
 })
-export class ChatComponent  implements OnInit {
+export class ChatComponent implements OnInit, OnDestroy, AfterViewChecked {
   salaId?: string;
   mensajes: any[] = [];
   nuevoMensaje: string = '';
-  usuario: string = 'maria.lopez@example.com';
+  sub?: Subscription;
+  usuario: string = '';
+  subMensajes?: Subscription;
+  @ViewChild('scrollAnchor') private scrollAnchor?: ElementRef;
 
   constructor(
     private route: ActivatedRoute,
     private authService: AuthService,
-    private router: Router
-  ) {
-    this.mensajes = [{
-      usuario: 'juan.perez@example.com',
-      fecha: '22 de septiembre de 2024, 8:03:56 p.m. UTC-3',
-      mensaje: 'Hola a todos, ¿cómo están?'
-    },
-    {
-      usuario: 'maria.lopez@example.com',
-      fecha: '22 de septiembre de 2024, 8:05:20 p.m. UTC-3',
-      mensaje: '¡Hola Juan! Todo bien, ¿y tú?'
-    },
-    {
-      usuario: 'carlos.garcia@example.com',
-      fecha: '22 de septiembre de 2024, 8:06:45 p.m. UTC-3',
-      mensaje: '¡Buenas noches! ¿Listos para empezar?'
-    },
-    {
-      usuario: 'ana.rodriguez@example.com',
-      fecha: '22 de septiembre de 2024, 8:07:12 p.m. UTC-3',
-      mensaje: 'Sí, ya estoy lista. Vamos a darle.'
-    },
-    {
-      usuario: 'lucas.martinez@example.com',
-      fecha: '22 de septiembre de 2024, 8:08:33 p.m. UTC-3',
-      mensaje: 'Tengo una duda sobre el tema de hoy.'
-    },
-    {
-      usuario: 'juan.perez@example.com',
-      fecha: '22 de septiembre de 2024, 8:09:14 p.m. UTC-3',
-      mensaje: '¿Qué duda tienes, Lucas?'
-    },
-    {
-      usuario: 'lucas.martinez@example.com',
-      fecha: '22 de septiembre de 2024, 8:10:02 p.m. UTC-3',
-      mensaje: 'No entendí bien la parte del nuevo componente.'
-    },
-    {
-      usuario: 'ana.rodriguez@example.com',
-      fecha: '22 de septiembre de 2024, 8:11:38 p.m. UTC-3',
-      mensaje: 'Podemos repasarlo, es una parte clave del proyecto.'
-    },
-    {
-      usuario: 'carlos.garcia@example.com',
-      fecha: '22 de septiembre de 2024, 8:12:47 p.m. UTC-3',
-      mensaje: 'Totalmente, déjenme compartirles la documentación.'
-    },
-    {
-      usuario: 'maria.lopez@example.com',
-      fecha: '22 de septiembre de 2024, 8:13:56 p.m. UTC-3',
-      mensaje: '¡Perfecto! Gracias, Carlos.'
-    }];
-   }
+    private router: Router,
+    private chatService: ChatService
+  ) {}
 
   ngOnInit() {
     this.salaId = this.route.snapshot.paramMap.get('salaId') || '';
+    this.sub = this.authService.userEmail.subscribe((respuesta: any) => {
+      this.usuario = respuesta;
+    });
+    this.subMensajes = this.chatService
+      .getMensajes(this.salaId)
+      .subscribe((respuesta: any) => {
+        this.mensajes = respuesta;
+      });
   }
 
-  enviarMensaje () {
-    console.log(this.nuevoMensaje);
-    // if (this.nuevoMensaje.trim() != '') {
-    //   this.chatService.registrarMensaje(this.usuario, this.nuevoMensaje);
-    //   this.nuevoMensaje = '';
-    //   this.scrollToBottom();
-    // }
+  enviarMensaje() {
+    if (this.nuevoMensaje.trim() != '' && this.salaId) {
+      this.chatService.registrarMensaje(
+        this.salaId,
+        this.usuario,
+        this.nuevoMensaje
+      );
+      this.nuevoMensaje = '';
+      this.scrollToBottom();
+    }
   }
 
-  onLogout () {
+  scrollToBottom() {
+    if (this.scrollAnchor) {
+      this.scrollAnchor.nativeElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  ngAfterViewChecked() {
+    this.scrollToBottom();
+  }
+
+  onLogout() {
     this.authService.logout();
     this.router.navigateByUrl('/auth');
+  }
+
+  ngOnDestroy() {
+    this.sub?.unsubscribe();
+    this.subMensajes?.unsubscribe();
   }
 }

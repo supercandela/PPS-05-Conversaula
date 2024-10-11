@@ -7,7 +7,6 @@ ion-content {
     height: 100%;
 }
 
-
 .sala-4a {
     --background: rgba(3, 5, 122, 1);
 }
@@ -22,30 +21,31 @@ ion-content {
     background-position: center center;
     background-size: cover;
 }
-  
-  .chat-body {
+
+.chat-body {
     flex-grow: 1;
     overflow-y: auto;
     padding: 10px;
     background: transparent;
-    max-height: calc(100vh - 45px - 80px - 20px); /* Resta espacio para el input de enviar y  el footer */
-  }
-  
-  .chat-messages {
+    height: calc(100vh - 45px - 80px - 20px);
+    /* Resta espacio para el input de enviar y  el footer */
+}
+
+.chat-messages {
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
-  }
-  
-  .message {
+}
+
+.message {
     max-width: 70%;
     margin: 5px 0;
     padding: 10px;
     border-radius: 15px;
     word-wrap: break-word;
-  }
-  
-  .my-message {
+}
+
+.my-message {
     align-self: flex-end;
     background: rgba(7, 108, 126, 0.9);
     color: gainsboro;
@@ -57,27 +57,27 @@ ion-content {
     background: rgba(58, 58, 58, 0.9);
     color: gainsboro;
     font-family: 'typewdemi', 'Times New Roman', Times, serif;
-  }
+}
 
-  .nombre-usuario {
+.nombre-usuario {
     display: inline-block;
     font-weight: bold;
     margin-bottom: 0.2rem;
     margin-right: 0.2rem;
-  }
+}
 
-  .fecha {
+.fecha {
     display: inline-block;
     margin-bottom: 0.2rem;
-  }
-  
-  .chat-footer {
+}
+
+.chat-footer {
     padding: 10px;
     display: flex;
     align-items: center;
-  }
-  
-  .chat-footer input {
+}
+
+.chat-footer input {
     height: 45px;
     width: calc(100% - 55px);
     font-size: 16px;
@@ -85,29 +85,27 @@ ion-content {
     font-family: 'typewdemi', 'Times New Roman', Times, serif;
     color: gainsboro;
     border-radius: 15px;
-  }
-  
-  .chat-footer button {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.chat-footer input::placeholder {
+    color: rgb(165, 165, 165);
+    opacity: 0.8;
+    /* Controla la visibilidad del placeholder */
+}
+
+.chat-footer button {
     height: 45px;
     width: 45px;
     margin-left: 5px;
     border-radius: 50%;
-    background-color: rgba(255,0,0,1);
+    background-color: rgba(255, 0, 0, 1);
     background-image: url('../../assets/images/icono-enviar.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 33px;
-  }
-
-
-
-
-
-
-
-
-
-
+}
 
 .footer {
     height: 80px;

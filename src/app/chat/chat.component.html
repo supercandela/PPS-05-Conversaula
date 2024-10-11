@@ -6,7 +6,7 @@
         <div class="message" [ngClass]="mensaje.usuario === usuario ? 'my-message' : 'other-message'">
           <div class="message-content">
             <p *ngIf="mensaje.usuario !== usuario" class="nombre-usuario"><strong>{{ mensaje.usuario }}</strong></p>
-            <p class="fecha"> {{ mensaje.fecha }}</p>
+            <p class="fecha">{{ (mensaje.fecha.seconds * 1000) | date:'dd-MM-yy HH:mm' }}</p>
             <p class="mensaje">{{ mensaje.mensaje }}</p>
           </div>
         </div>
@@ -19,10 +19,10 @@
       <button class="btn" (click)="enviarMensaje()"></button>
     </div>
 
-
     <!-- Footer con botón de cierre de sesión -->
     <div class="footer" [ngClass]="salaId === 'sala-4b' ? 'sala-4b' : 'sala-4a'">
-      <button ion-button class="logout-button" routerLink="/home" routerLinkActive="router-link-active">Volver a Home</button>
+      <button ion-button class="logout-button" routerLink="/home" routerLinkActive="router-link-active">Volver a
+        Home</button>
       <button ion-button class="logout-button" (click)="onLogout()">Cerrar sesión</button>
     </div>
   </div>
