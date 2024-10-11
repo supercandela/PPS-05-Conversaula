@@ -1,4 +1,4 @@
-package com.ioniccapacitorapp.CapturaYVota;
+package com.ioniccapacitorapp.Conversaula;
 
 import com.getcapacitor.BridgeActivity;
 

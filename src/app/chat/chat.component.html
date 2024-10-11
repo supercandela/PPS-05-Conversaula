@@ -1,0 +1,29 @@
+<ion-content [ngClass]="salaId === 'sala-4b' ? 'sala-4b' : 'sala-4a'">
+  <div class="imagen">
+
+    <div class="row chat-body">
+      <div class="col-12 chat-messages" *ngFor="let mensaje of mensajes; let last = last">
+        <div class="message" [ngClass]="mensaje.usuario === usuario ? 'my-message' : 'other-message'">
+          <div class="message-content">
+            <p *ngIf="mensaje.usuario !== usuario" class="nombre-usuario"><strong>{{ mensaje.usuario }}</strong></p>
+            <p class="fecha"> {{ mensaje.fecha }}</p>
+            <p class="mensaje">{{ mensaje.mensaje }}</p>
+          </div>
+        </div>
+        <div *ngIf="last" #scrollAnchor></div>
+      </div>
+    </div>
+
+    <div class="row chat-footer">
+      <input type="text" class="form-control" placeholder="Escribe un mensaje..." [(ngModel)]="nuevoMensaje">
+      <button class="btn" (click)="enviarMensaje()"></button>
+    </div>
+
+
+    <!-- Footer con botón de cierre de sesión -->
+    <div class="footer" [ngClass]="salaId === 'sala-4b' ? 'sala-4b' : 'sala-4a'">
+      <button ion-button class="logout-button" routerLink="/home" routerLinkActive="router-link-active">Volver a Home</button>
+      <button ion-button class="logout-button" (click)="onLogout()">Cerrar sesión</button>
+    </div>
+  </div>
+</ion-content>

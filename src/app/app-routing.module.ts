@@ -15,6 +15,16 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'chat',
+    children: [
+      {
+        path: ':salaId',
+        loadChildren: () => import('./chat/chat.module').then( m => m.ChatModule),
+        canMatch: [authGuard]
+      }
+    ]
+  },
+  {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then( m => m.AuthPageModule)
   },
